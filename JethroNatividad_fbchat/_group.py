@@ -87,15 +87,19 @@ class Group(Thread):
             color=c_info.get("color"),
             emoji=c_info.get("emoji"),
             admins=set([node.get("id") for node in data.get("thread_admins")]),
-            approval_mode=bool(data.get("approval_mode"))
-            if data.get("approval_mode") is not None
-            else None,
-            approval_requests=set(
-                node["requester"]["id"]
-                for node in data["group_approval_queue"]["nodes"]
-            )
-            if data.get("group_approval_queue")
-            else None,
+            approval_mode=(
+                bool(data.get("approval_mode"))
+                if data.get("approval_mode") is not None
+                else None
+            ),
+            approval_requests=(
+                set(
+                    node["requester"]["id"]
+                    for node in data["group_approval_queue"]["nodes"]
+                )
+                if data.get("group_approval_queue")
+                else None
+            ),
             join_link=data["joinable_mode"].get("link"),
             photo=data["image"].get("uri"),
             name=data.get("name"),

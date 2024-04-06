@@ -100,9 +100,9 @@ def compare(client, thread):
     def inner(caught_event, **kwargs):
         d = {
             "author_id": client.uid,
-            "thread_id": client.uid
-            if thread["type"] == ThreadType.USER
-            else thread["id"],
+            "thread_id": (
+                client.uid if thread["type"] == ThreadType.USER else thread["id"]
+            ),
             "thread_type": thread["type"],
         }
         d.update(kwargs)

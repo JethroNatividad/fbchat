@@ -76,12 +76,16 @@ class LiveLocationAttachment(LocationAttachment):
     def _from_pull(cls, data):
         return cls(
             uid=data["id"],
-            latitude=data["coordinate"]["latitude"] / (10 ** 8)
-            if not data.get("stopReason")
-            else None,
-            longitude=data["coordinate"]["longitude"] / (10 ** 8)
-            if not data.get("stopReason")
-            else None,
+            latitude=(
+                data["coordinate"]["latitude"] / (10**8)
+                if not data.get("stopReason")
+                else None
+            ),
+            longitude=(
+                data["coordinate"]["longitude"] / (10**8)
+                if not data.get("stopReason")
+                else None
+            ),
             name=data.get("locationTitle"),
             expiration_time=data["expirationTime"],
             is_expired=bool(data.get("stopReason")),
@@ -92,12 +96,12 @@ class LiveLocationAttachment(LocationAttachment):
         target = data["target"]
         rtn = cls(
             uid=int(target["live_location_id"]),
-            latitude=target["coordinate"]["latitude"]
-            if target.get("coordinate")
-            else None,
-            longitude=target["coordinate"]["longitude"]
-            if target.get("coordinate")
-            else None,
+            latitude=(
+                target["coordinate"]["latitude"] if target.get("coordinate") else None
+            ),
+            longitude=(
+                target["coordinate"]["longitude"] if target.get("coordinate") else None
+            ),
             name=data["title_with_entities"]["text"],
             expiration_time=target.get("expiration_time"),
             is_expired=target.get("is_expired"),

@@ -79,7 +79,7 @@ class CaughtValue(event_class):
 
 
 def random_hex(length=20):
-    return "{:X}".format(randrange(16 ** length))
+    return "{:X}".format(randrange(16**length))
 
 
 def subset(a, **b):

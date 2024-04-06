@@ -851,7 +851,7 @@ class Client(object):
         form = {
             "folders[0]": "inbox",
             "client": "mercury",
-            "last_action_timestamp": now() - 60 * 1000
+            "last_action_timestamp": now() - 60 * 1000,
             # 'last_action_timestamp': 0
         }
         j = self._payload_post("/ajax/mercury/unread_threads.php", form)
@@ -1450,9 +1450,9 @@ class Client(object):
                     "Error when adding users: Cannot add self to group thread"
                 )
             else:
-                data[
-                    "log_message_data[added_participants][{}]".format(i)
-                ] = "fbid:{}".format(user_id)
+                data["log_message_data[added_participants][{}]".format(i)] = (
+                    "fbid:{}".format(user_id)
+                )
 
         return self._doSendRequest(data)
 
@@ -2971,14 +2971,14 @@ class Client(object):
         self, thread_id=None, thread_type=None, metadata=None, msg=None
     ):
         """Called when the client is listening, and somebody that isn't
-         connected with you on either Facebook or Messenger sends a message.
-         After that, you need to use fetchThreadList to actually read the message.
+        connected with you on either Facebook or Messenger sends a message.
+        After that, you need to use fetchThreadList to actually read the message.
 
-         Args:
-            thread_id: Thread ID that the message was sent to. See :ref:`intro_threads`
-            thread_type (ThreadType): Type of thread that the message was sent to. See :ref:`intro_threads`
-            metadata: Extra metadata about the message
-            msg: A full set of the data received
+        Args:
+           thread_id: Thread ID that the message was sent to. See :ref:`intro_threads`
+           thread_type (ThreadType): Type of thread that the message was sent to. See :ref:`intro_threads`
+           metadata: Extra metadata about the message
+           msg: A full set of the data received
         """
         log.info("New pending message from {}".format(thread_id))
 

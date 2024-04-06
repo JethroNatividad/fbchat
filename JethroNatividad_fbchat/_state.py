@@ -35,7 +35,7 @@ def session_factory(user_agent=None):
 
 
 def client_id_factory():
-    return hex(int(random.random() * 2 ** 31))[2:]
+    return hex(int(random.random() * 2**31))[2:]
 
 
 def is_home(url):

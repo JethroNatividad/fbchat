@@ -6,7 +6,7 @@ requires = ["flit"]
 build-backend = "flit.buildapi"
 
 [tool.flit.metadata]
-module = "JethroNatividad/fbchat"
+module = "JethroNatividad_fbchat"
 author = "Jethro Natividad"
 author-email = "natividad.jet@gmail.com"
 maintainer = "Jethro Natividad"

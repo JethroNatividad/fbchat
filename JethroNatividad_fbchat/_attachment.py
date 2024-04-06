@@ -55,17 +55,19 @@ class ShareAttachment(Attachment):
         url = data.get("url")
         rtn = cls(
             uid=data.get("deduplication_key"),
-            author=data["target"]["actors"][0]["id"]
-            if data["target"].get("actors")
-            else None,
+            author=(
+                data["target"]["actors"][0]["id"]
+                if data["target"].get("actors")
+                else None
+            ),
             url=url,
-            original_url=_util.get_url_parameter(url, "u")
-            if "/l.php?u=" in url
-            else url,
+            original_url=(
+                _util.get_url_parameter(url, "u") if "/l.php?u=" in url else url
+            ),
             title=data["title_with_entities"].get("text"),
-            description=data["description"].get("text")
-            if data.get("description")
-            else None,
+            description=(
+                data["description"].get("text") if data.get("description") else None
+            ),
             source=data["source"].get("text") if data.get("source") else None,
             attachments=[
                 _file.graphql_to_subattachment(attachment)

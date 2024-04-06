@@ -108,9 +108,11 @@ def test_change_image_remote(client1, group, catch_event):
 @pytest.mark.parametrize(
     "color",
     [
-        x
-        if x in [ThreadColor.MESSENGER_BLUE, ThreadColor.PUMPKIN]
-        else pytest.param(x, marks=[pytest.mark.expensive()])
+        (
+            x
+            if x in [ThreadColor.MESSENGER_BLUE, ThreadColor.PUMPKIN]
+            else pytest.param(x, marks=[pytest.mark.expensive()])
+        )
         for x in ThreadColor
     ],
 )

@@ -74,7 +74,8 @@ def get_cookie_header(session, url):
     """Extract a cookie header from a requests session."""
     # The cookies are extracted this way to make sure they're escaped correctly
     return requests.cookies.get_cookie_header(
-        session.cookies, requests.Request("GET", url),
+        session.cookies,
+        requests.Request("GET", url),
     )
 
 
