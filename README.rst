@@ -1,3 +1,5 @@
+# FORK OF FBCHAT LIBRARY
+
 ``fbchat``: Facebook Chat (Messenger) for Python
 ================================================
 
