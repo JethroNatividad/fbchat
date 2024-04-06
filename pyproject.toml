@@ -6,12 +6,12 @@ requires = ["flit"]
 build-backend = "flit.buildapi"
 
 [tool.flit.metadata]
-module = "fbchat"
-author = "Taehoon Kim"
-author-email = "carpedm20@gmail.com"
-maintainer = "Mads Marquart"
-maintainer-email = "madsmtm@gmail.com"
-home-page = "https://github.com/carpedm20/fbchat/"
+module = "JethroNatividad/fbchat"
+author = "Jethro Natividad"
+author-email = "natividad.jet@gmail.com"
+maintainer = "Jethro Natividad"
+maintainer-email = "natividad.jet@gmail.com"
+home-page = "https://github.com/JethroNatividad/fbchat/"
 requires = [
     "aenum~=2.0",
     "attrs>=18.2",
@@ -47,8 +47,8 @@ keywords = "Facebook FB Messenger Library Chat Api Bot"
 license = "BSD 3-Clause"
 
 [tool.flit.metadata.urls]
-Documentation = "https://fbchat.readthedocs.io/"
-Repository = "https://github.com/carpedm20/fbchat/"
+Documentation = "https://YourUsername.github.io/fbchat/"
+Repository = "https://github.com/YourUsername/fbchat/"
 
 [tool.flit.metadata.requires-extra]
 test = [

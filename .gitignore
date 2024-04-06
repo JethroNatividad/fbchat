@@ -36,3 +36,4 @@ tests.data
 # Virtual environment
 venv/
 .venv*/
+env
